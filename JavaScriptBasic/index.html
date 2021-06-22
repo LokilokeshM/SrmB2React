@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Script</title>
+  <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://rawgit.com/moment/moment/2.2.1/min/moment.min.js"></script>
+ 
+    <link rel="stylesheet" href="style.css">
+    <script src="Basic.js"></script>
+    <style>
+        label{
+            font-size: 20px;
+            font-weight: bold;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <!-- Container -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <!-- Calcularor Work -->
+                <div class="card">
+                    <div class="card-body">
+                        <label>Number 1</label>
+                        <input type="number" class="form-control" id="txt1" name="txt1"value="0">
+                        <label>Number 2</label>
+                        <input type="number" class="form-control" id="txt2" name="txt2" value="0">
+                        <br>
+                        <div class="row">
+                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 p-3">
+                                <button class="btn btn-primary w-100" id="add" onclick="calc('add')" value="add">Add</button>
+                            </div> 
+                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 p-3">
+                                <button class="btn btn-primary w-100" id="sub" value="sub" onclick="calc('sub')">Sub</button>
+                            </div> 
+                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 p-3">
+                                <button class="btn btn-primary w-100" id="divide" value="divide" onclick="calc('divide')">Divide</button>
+                            </div> 
+                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 p-3">
+                                <button class="btn btn-primary w-100" id="multiply" value="multiply" onclick="calc('multiply')">Multiply</button>
+                            </div> 
+                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 p-3">
+                                <button class="btn btn-primary w-100" id="modulus" value="modulus" onclick="calc('modulus')">Modulus</button>
+                            </div> 
+                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 p-3">
+                                <button class="btn btn-primary w-100" id="percentage" value="percentage" onclick="calc('percentage')">Percentage</button>
+                            </div> 
+                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 p-3">
+                                <button class="btn btn-primary w-100" id="cube" value="cube" onclick="calc('cube')">Cube</button>
+                            </div>
+                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 p-3">
+                                <button class="btn btn-primary w-100" id="square" value="square" onclick="calc('square')">Square</button>
+                            </div>
+                            <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                               <label><h3>Answer : <span id="answer"></span></h3></label> 
+                            </div>    
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <!-- Convertion of String To A Number -->
+                <div class="card">
+                    <div class="card-head">
+                       <label for="">Convertion of String to Number and And Check String</label> 
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <span class="label">Enter The value</span>
+                            <input type="text" name="valueText" id="valueText" value="" class="form-control">
+                            <input type="number" name="valueText" id="valueText1" value="0" class="form-control">         
+                        </div>
+                        <button class="btn btn-primary w-50" onclick="checkString()">Check And Convert</button>
+                    </div>
+                </div>
+            </div>   
+        </div>
+        <!-- End Of Row -->
+        <!-- Row Start -->
+        <div class="row">   
+            <!-- Print Date In a Format -->
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <label for="">Date In a Format</label><br>
+                <span id="printDate"></span><br>
+                <span id="yesterdayDate"></span><br>
+                <button class="btn btn-primary" onclick="printDate()">Get Date</button>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <label for="">Array Data With A Corrected Format</label><br>
+                <span id="arrayValue"></span><br>
+                <button class="btn btn-primary" onclick="printArray()">Print Array</button>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <label for="">Prime Numbers</label><br>
+                <span></span>
+                <button class="btn btn-primary" onclick="sendNumber()">Get PrimeNumber</button>
+            </div>
+            
+        </div>
+        <!-- End Of Row -->
+    </div>
+    <!-- End Of Container -->
+</body>
+<script>
+   
+
+    // $(document).ready(function(){
+
+    //     $("#add").click(function(){
+       
+    //         var sum= $("#txt1").val() + $("#txt2").val()
+    //         $("#answer").html(sum)() ;
+    //     })
+    // });
+</script>
+</html>
