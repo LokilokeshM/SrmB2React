@@ -1,7 +1,8 @@
 import './App.css';
 import MyTest from './Components/MyTest';
 import DisplayCity from './Components/DisplayCity'
-import Weather from './Components/Weather'; 
+
+import ValidationStudents from './Components/ValidationStudents';
 import {
   BrowserRouter as Router,
   Switch,
@@ -23,6 +24,9 @@ function App() {
               </Route>
                 <Route path="/Weather">
                   <DisplayCity/>
+                </Route>
+                <Route path="/ValidationForm">
+                  <ValidationStudents/>
                 </Route>
             </Switch>
         </Router>
